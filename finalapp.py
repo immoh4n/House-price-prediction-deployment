@@ -13,8 +13,15 @@ st.set_page_config(page_title="House price prediction",
 # working_dir = os.path.dirname(os.path.abspath(__file__))
 # with open('house_price_model.sav', 'rb') as file:
 #     house_price_model = pickle.load(file)
+karapakkam=1
+adyar=2
+chrompet=3
+velachery=4
+kk nagar=5
+anna nagar=6
+t nagar=7
 
-
+area_options = ['karapakkam','adyar','chrompet','velachery','kk nagar','anna nagar','t nagar']
 # Sidebar for user input
 with st.sidebar:
     st.title('House Price Prediction')
@@ -22,7 +29,7 @@ with st.sidebar:
 
     col1, = st.columns(1)
     with col1:
-        area = st.text_input('Area (1 to 7)')
+        area = st.selectbox('Area',area_options)
         sqft = st.text_input('Square Footage')
         dist_main = st.text_input('Distance to main road')
         bedrooms = st.text_input('Number of Bedrooms')
