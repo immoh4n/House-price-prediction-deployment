@@ -23,7 +23,10 @@ area_mapping = {
     'anna_nagar': 6,
     't_nagar': 7
 }
-
+park_mapping{
+  'yes':1.
+  'no':0
+}
 
 # Sidebar for user input
 with st.sidebar:
@@ -38,7 +41,7 @@ with st.sidebar:
         bedrooms = st.text_input('Number of Bedrooms')
         bathrooms = st.text_input('Number of Bathrooms')
         rooms = st.text_input('Number of Rooms')
-        park = st.text_input('Park Facility (yes=1 or no=0)')
+        park = st.selectbox('Parking',list(park_mapping.keys()))
         
     
 
@@ -50,7 +53,7 @@ try:
     bedrooms = int(bedrooms)
     bathrooms = int(bathrooms)
     rooms = int(rooms)
-    park = int(park)
+    park=park_mapping[park]
 except ValueError:
     st.error('Please enter valid numerical values for input fields')
     st.stop()
