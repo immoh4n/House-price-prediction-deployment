@@ -17,11 +17,11 @@ karapakkam=1
 adyar=2
 chrompet=3
 velachery=4
-kk nagar=5
-anna nagar=6
-t nagar=7
+kk_nagar=5
+anna_nagar=6
+t_nagar=7
 
-area_options = ['karapakkam','adyar','chrompet','velachery','kk nagar','anna nagar','t nagar']
+area_options = ['karapakkam','adyar','chrompet','velachery','kk_nagar','anna_nagar','t_nagar']
 # Sidebar for user input
 with st.sidebar:
     st.title('House Price Prediction')
