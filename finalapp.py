@@ -24,7 +24,7 @@ area_mapping = {
     't_nagar': 7
 }
 park_mapping{
-  'yes':1.
+  'yes':1,
   'no':0
 }
 
