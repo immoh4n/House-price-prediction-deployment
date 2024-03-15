@@ -73,9 +73,9 @@ def predi():
     msg.toast('Predicting...')
     time.sleep(1)
     msg.toast('Ready!', icon = "🥞")
-
+    st.write('Predicted House Price:', prediction)
    
 # Button for prediction
 if st.button('Predict House Price'):
     predi() 
-    st.write('Predicted House Price:', prediction)
+    # st.write('Predicted House Price:', prediction)
