@@ -23,7 +23,7 @@ area_mapping = {
     'anna_nagar': 6,
     't_nagar': 7
 }
-park_mapping{
+park_mapping = {
   'yes':1,
   'no':0
 }
@@ -53,7 +53,7 @@ try:
     bedrooms = int(bedrooms)
     bathrooms = int(bathrooms)
     rooms = int(rooms)
-    park=park_mapping[park]
+    park = park_mapping[park]
 except ValueError:
     st.error('Please enter valid numerical values for input fields')
     st.stop()
