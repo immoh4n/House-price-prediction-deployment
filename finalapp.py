@@ -9,9 +9,6 @@ st.set_page_config(page_title="House price prediction",
                    layout="wide",
                    page_icon="🏘️")
 
-# Local Modules
-import settings
-import helper
 
 # Setting page layout
 st.set_page_config(
