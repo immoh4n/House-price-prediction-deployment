@@ -63,11 +63,18 @@ except ValueError:
 # new_house_features_scaled = scaler.transform(new_house_features)
 with st.expander("See explanation"):
   st.write('Please enter details')
+ 
+
+def predi():
+    prediction = sam(area, sqft, dist_main, bedrooms, bathrooms, rooms, park)
+    msg = st.toast('Gathering ingredients...')
+    time.sleep(1)
+    msg.toast('Predicting...')
+    time.sleep(1)
+    msg.toast('Ready!', icon = "🥞")
+
    
 # Button for prediction
 if st.button('Predict House Price'):
-    # Perform prediction using the model
-    prediction = sam(area, sqft, dist_main, bedrooms, bathrooms, rooms, park) 
-
-    # Display prediction
+    predi() 
     st.write('Predicted House Price:', prediction)
