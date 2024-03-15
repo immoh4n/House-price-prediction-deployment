@@ -9,11 +9,17 @@ st.set_page_config(page_title="House price prediction",
                    layout="wide",
                    page_icon="🏘️")
 
-# # Load the model
-# working_dir = os.path.dirname(os.path.abspath(__file__))
-# with open('house_price_model.sav', 'rb') as file:
-#     house_price_model = pickle.load(file)
+# Local Modules
+import settings
+import helper
 
+# Setting page layout
+st.set_page_config(
+    page_title="Object Detection using YOLOv8",
+    page_icon="🤖",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 
 # Sidebar for user input
 with st.sidebar:
