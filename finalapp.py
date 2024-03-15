@@ -62,9 +62,7 @@ except ValueError:
 # new_house_features = np.array([[area, sqft, dist_main, bedrooms, bathrooms, rooms, park]])
 # new_house_features_scaled = scaler.transform(new_house_features)
 with st.expander("See explanation"):
-    st.write("\"\"\"
-        This is predicted price calculated by using the machine learning models such as dt,knn,lr.
-    \"\"\")
+    st.write("\"\"\"This is predicted price calculated by using the machine learning models such as dt,knn,lr.\"\"\")
 # Button for prediction
 if st.button('Predict House Price'):
     # Perform prediction using the model
