@@ -20,7 +20,7 @@ with st.sidebar:
     st.title('House Price Prediction')
     st.write('Please enter details')
 
-    col1 = st.columns(1)
+    col1, = st.columns(1)
     with col1:
         area = st.text_input('Area (1 to 7)')
         sqft = st.text_input('Square Footage')
