@@ -20,17 +20,17 @@ with st.sidebar:
     st.title('House Price Prediction')
     st.write('Please enter details')
 
-    col1, col2 = st.columns(2)
+    col1 = st.columns()
     with col1:
         area = st.text_input('Area (1 to 7)')
         sqft = st.text_input('Square Footage')
         dist_main = st.text_input('Distance to main road')
         bedrooms = st.text_input('Number of Bedrooms')
-        
-    with col2:
         bathrooms = st.text_input('Number of Bathrooms')
         rooms = st.text_input('Number of Rooms')
         park = st.text_input('Park Facility (yes=1 or no=0)')
+        
+    
 
 # Convert input to appropriate data types
 try:
