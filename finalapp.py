@@ -63,7 +63,7 @@ except ValueError:
 # new_house_features = np.array([[area, sqft, dist_main, bedrooms, bathrooms, rooms, park]])
 # new_house_features_scaled = scaler.transform(new_house_features)
 with st.expander("See explanation"):
-  st.write('Please enter details')
+  st.write('This price is predicted by Decision Tree Model Which is the best one among the other three models')
 
 
 
