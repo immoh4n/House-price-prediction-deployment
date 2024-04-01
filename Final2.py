@@ -3,6 +3,8 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.tree import DecisionTreeRegressor
+from sklearn.linear_model import LinearRegression
+from sklearn.neighbors import KNeighborsRegressor
 from sklearn.impute import SimpleImputer
 
 import warnings
@@ -43,12 +45,24 @@ X_test_scaled = scaler.transform(X_test_imputed)
 dt_regressor = DecisionTreeRegressor(random_state=42)
 dt_regressor.fit(X_train_scaled, y_train)
 
+# Initialize Linear Regression model
+lr_regressor = LinearRegression()
+lr_regressor.fit(X_train_scaled, y_train)
+
+# Initialize K-Nearest Neighbors model
+knn_regressor = KNeighborsRegressor()
+knn_regressor.fit(X_train_scaled, y_train)
+
 def sam(area, sqft, dist_main, bedrooms, bathrooms, room, park):
     # Example prediction for a new house using Decision Tree Regression
     new_house_features = np.array([[area, sqft, dist_main, bedrooms, bathrooms, room, park]])
     new_house_features_scaled = scaler.transform(new_house_features)
+    
     dt_predicted_price = dt_regressor.predict(new_house_features_scaled)[0]
-    return dt_predicted_price
+    lr_predicted_price = lr_regressor.predict(new_house_features_scaled)[0]
+    knn_predicted_price = knn_regressor.predict(new_house_features_scaled)[0]
+    
+    return dt_predicted_price, lr_predicted_price, knn_predicted_price
 
 if __name__ == "__main__":
     # Manually input features for a new house
@@ -61,5 +75,7 @@ if __name__ == "__main__":
     park = int(input("Nearby park (1 for yes, 0 for no): "))
 
     # Predict house price
-    predicted_price = sam(area, sqft, dist_main, bedrooms, bathrooms, room, park)
-    print("Predicted Price for the New House (Decision Tree Regression):", predicted_price)
+    dt_predicted_price, lr_predicted_price, knn_predicted_price = sam(area, sqft, dist_main, bedrooms, bathrooms, room, park)
+    print("Predicted Price for the New House (Decision Tree Regression):", dt_predicted_price)
+    print("Predicted Price for the New House (Linear Regression):", lr_predicted_price)
+    print("Predicted Price for the New House (K-Nearest Neighbors):", knn_predicted_price)
