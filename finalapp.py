@@ -4,18 +4,16 @@ import pickle
 import streamlit as st
 from sklearn.preprocessing import StandardScaler
 import numpy as np
+import matplotlib.pyplot as plt
 from Final2 import sam
 from Final2 import sam1
 from Final2 import sam2
+
 # Set page configuration
 st.set_page_config(page_title="House price prediction",
                    layout="wide",
                    page_icon="🏘️")
 
-# # Load the model
-# working_dir = os.path.dirname(os.path.abspath(__file__))
-# with open('house_price_model.sav', 'rb') as file:
-#     house_price_model = pickle.load(file)
 # Define the area options and their corresponding integer representations
 area_mapping = {
     'karapakkam': 1,
@@ -45,8 +43,6 @@ with st.sidebar:
         bathrooms = st.text_input('Number of Bathrooms')
         rooms = st.text_input('Number of Rooms')
         park = st.selectbox('Parking',list(park_mapping.keys()))
-        
-    
 
 # Convert input to appropriate data types
 try:
@@ -61,19 +57,25 @@ except ValueError:
     st.error('Please enter valid numerical values for input fields')
     st.stop()
 
-# # Transform the new input features
-# new_house_features = np.array([[area, sqft, dist_main, bedrooms, bathrooms, rooms, park]])
-# new_house_features_scaled = scaler.transform(new_house_features)
-with st.expander("See explanation"):
-  st.write('This price is predicted by Decision Tree Model Which is the best one among the other three models')
-
-
-
 # Button for prediction
 if st.button('Predict House Price'):
-  prediction1 = sam(area, sqft, dist_main, bedrooms, bathrooms, rooms, park)
-  prediction2 = sam1(area, sqft, dist_main, bedrooms, bathrooms, rooms, park)
-  prediction3 = sam2(area, sqft, dist_main, bedrooms, bathrooms, rooms, park)
-  st.write('Predicted House Price(DT):', prediction1)
-  st.write('Predicted House Price(KNN):', prediction2)
-  st.write('Predicted House Price(LR):', prediction3)
+    prediction1 = sam(area, sqft, dist_main, bedrooms, bathrooms, rooms, park)
+    prediction2 = sam1(area, sqft, dist_main, bedrooms, bathrooms, rooms, park)
+    prediction3 = sam2(area, sqft, dist_main, bedrooms, bathrooms, rooms, park)
+    st.write('Predicted House Price(DT):', prediction1)
+    st.write('Predicted House Price(KNN):', prediction2)
+    st.write('Predicted House Price(LR):', prediction3)
+
+    # Plotting the predicted prices
+    labels = ['Decision Tree', 'KNN', 'Linear Regression']
+    predicted_prices = [prediction1, prediction2, prediction3]
+
+    plt.figure(figsize=(10, 6))
+    plt.bar(labels, predicted_prices, color=['blue', 'green', 'orange'])
+    plt.title('Predicted House Prices')
+    plt.xlabel('Regression Model')
+    plt.ylabel('Predicted Price')
+    plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+    # Display the plot in Streamlit
+    st.pyplot(plt)
