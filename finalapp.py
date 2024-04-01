@@ -5,6 +5,8 @@ import streamlit as st
 from sklearn.preprocessing import StandardScaler
 import numpy as np
 from Final2 import sam
+from Final2 import sam1
+from Final2 import sam2
 # Set page configuration
 st.set_page_config(page_title="House price prediction",
                    layout="wide",
