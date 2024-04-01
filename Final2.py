@@ -59,10 +59,28 @@ def sam(area, sqft, dist_main, bedrooms, bathrooms, room, park):
     new_house_features_scaled = scaler.transform(new_house_features)
     
     dt_predicted_price = dt_regressor.predict(new_house_features_scaled)[0]
-    lr_predicted_price = lr_regressor.predict(new_house_features_scaled)[0]
+    
+    return dt_predicted_price
+  
+def sam1(area, sqft, dist_main, bedrooms, bathrooms, room, park):
+    # Example prediction for a new house using Decision Tree Regression
+    new_house_features = np.array([[area, sqft, dist_main, bedrooms, bathrooms, room, park]])
+    new_house_features_scaled = scaler.transform(new_house_features)
+    
+   
     knn_predicted_price = knn_regressor.predict(new_house_features_scaled)[0]
     
-    return dt_predicted_price, lr_predicted_price, knn_predicted_price
+    return knn_predicted_price
+  
+def sam2(area, sqft, dist_main, bedrooms, bathrooms, room, park):
+    # Example prediction for a new house using Decision Tree Regression
+    new_house_features = np.array([[area, sqft, dist_main, bedrooms, bathrooms, room, park]])
+    new_house_features_scaled = scaler.transform(new_house_features)
+    
+    
+    lr_predicted_price = lr_regressor.predict(new_house_features_scaled)[0]
+   
+    return lr_predicted_price
 
 if __name__ == "__main__":
     # Manually input features for a new house
