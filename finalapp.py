@@ -69,5 +69,9 @@ with st.expander("See explanation"):
 
 # Button for prediction
 if st.button('Predict House Price'):
-  prediction = sam(area, sqft, dist_main, bedrooms, bathrooms, rooms, park)
-  st.write('Predicted House Price:', prediction)
+  prediction1 = sam(area, sqft, dist_main, bedrooms, bathrooms, rooms, park)
+  prediction2 = sam1(area, sqft, dist_main, bedrooms, bathrooms, rooms, park)
+  prediction3 = sam2(area, sqft, dist_main, bedrooms, bathrooms, rooms, park)
+  st.write('Predicted House Price(DT):', prediction1)
+  st.write('Predicted House Price(KNN):', prediction2)
+  st.write('Predicted House Price(LR):', prediction3)
