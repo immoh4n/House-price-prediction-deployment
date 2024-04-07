@@ -92,7 +92,3 @@ if st.button('Predict House Price'):
 # Display the footer
 st.markdown('---')
 st.markdown('This website is available for both mobile and desktop.')
-
-# Display the footer
-st.markdown('---')
-st.markdown('This website is available for both mobile and desktop.')
