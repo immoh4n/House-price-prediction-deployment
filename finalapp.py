@@ -85,7 +85,7 @@ st.markdown(
     """
     <style>
     .reportview-container {
-        background: url("https://github.com/immoh4n/House-price-prediction-deployment/blob/main/OIP.jpeg") no-repeat center center fixed;
+        background: url("https://s1.dmcdn.net/v/T8tfQ1ZkBZd0i6gpw/x720") no-repeat center center fixed;
         background-size: cover;
     }
     </style>
