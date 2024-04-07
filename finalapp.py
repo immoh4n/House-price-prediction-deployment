@@ -26,6 +26,19 @@ park_mapping = {
     'no': 0
 }
 
+# Add CSS for background image
+st.markdown(
+    """
+    <style>
+    .reportview-container {
+        background: url('https://www.bing.com/images/search?view=detailV2&ccid=hXswR%2bI7&id=DCDC0C569C98342D64B53A4DC5C8319886B1B685&thid=OIP.hXswR-I7sPIrG-kdqMec-wHaEK&mediaurl=https%3a%2f%2fpng.pngtree.com%2fbackground%2f20230412%2foriginal%2fpngtree-house-cartoon-phnom-penh-night-picture-image_2396264.jpg&exph=675&expw=1200&q=background+image+for+house+cartoon&simid=608024592228490579&FORM=IRPRST&ck=59324E389E916B7AD09510BD794FDAA9&selectedIndex=29&itb=0');
+        background-size: cover;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Introduction and Project Description
 st.title('House Price Prediction')
 st.write('Welcome to the House Price Prediction app! This project uses machine learning algorithms to predict house prices based on various features such as location, square footage, distance to the main road, number of bedrooms and bathrooms, number of rooms, and parking availability.')
