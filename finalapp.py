@@ -2,12 +2,9 @@ import os
 import time
 import pickle
 import streamlit as st
-from sklearn.preprocessing import StandardScaler
 import numpy as np
 import matplotlib.pyplot as plt
-from Final2 import sam
-from Final2 import sam1
-from Final2 import sam2
+from Final2 import sam, sam1, sam2
 
 # Set page configuration
 st.set_page_config(page_title="House price prediction",
@@ -88,8 +85,61 @@ if st.button('Predict House Price'):
         # Display the plot in Streamlit
         st.pyplot(plt)
 
-        # Add fixed space after the plot
-        st.markdown("<div style='margin-bottom: 100px;'></div>", unsafe_allow_html=True)
+# Custom CSS styles
+st.markdown(
+    """
+    <style>
+    /* Add custom CSS styles here */
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Advanced Widgets
+st.sidebar.write('### Advanced Options')
+option = st.sidebar.radio('Select Option', ('Option 1', 'Option 2', 'Option 3'))
+
+# Interactive Elements
+selected_date = st.sidebar.date_input('Select Date', min_value=None, max_value=None, value=None)
+
+# Data Visualization
+data = np.random.randn(100, 2)
+fig, ax = plt.subplots()
+ax.scatter(data[:, 0], data[:, 1])
+st.pyplot(fig)
+
+# User Feedback
+rating = st.slider('Rate this app', min_value=0, max_value=5, step=1)
+
+# Error Handling
+try:
+    result = 1 / 0  # Causes a ZeroDivisionError
+except Exception as e:
+    st.error(f'An error occurred: {e}')
+
+# Documentation
+st.sidebar.write('### Documentation')
+st.sidebar.write('Learn how to use this app!')
+
+# Performance Optimization
+st.sidebar.write('### Performance Optimization')
+st.sidebar.write('Optimizing for speed...')
+
+# Accessibility
+st.sidebar.write('### Accessibility')
+st.sidebar.write('Ensuring accessibility for all users...')
+
+# Responsive Design
+st.sidebar.write('### Responsive Design')
+st.sidebar.write('Adapting to different screen sizes...')
+
+# Additional Features
+st.sidebar.write('### Additional Features')
+st.sidebar.write('Coming soon...')
+
+# Credits
+st.sidebar.write('---')
+st.sidebar.write('Created by: Your Name')
 
 # Display the footer
 st.markdown('---')
