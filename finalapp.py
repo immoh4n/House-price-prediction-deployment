@@ -5,7 +5,6 @@ import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 from Final2 import sam, sam1, sam2
-from statsmodels.tsa.arima.model import ARIMA
 
 # Set page configuration
 st.set_page_config(page_title="House price prediction",
@@ -86,29 +85,6 @@ if st.button('Predict House Price'):
         # Display the plot in Streamlit
         st.pyplot(plt)
 
-# Comparative Analysis (2)
-with st.sidebar:
-    st.write('### Comparative Analysis')
-    area1 = st.selectbox('Area 1', list(area_mapping.keys()))
-    area2 = st.selectbox('Area 2', list(area_mapping.keys()))
-
-if st.button('Compare House Prices'):
-    is_valid_area1, area1, sqft, dist_main, bedrooms, bathrooms, rooms, park = validate_input(area1, sqft, dist_main, bedrooms, bathrooms, rooms, park)
-    is_valid_area2, area2, sqft, dist_main, bedrooms, bathrooms, rooms, park = validate_input(area2, sqft, dist_main, bedrooms, bathrooms, rooms, park)
-
-    if not is_valid_area1 or not is_valid_area2:
-        st.error('Please enter valid numerical values for input fields')
-    else:
-        prediction1_area1 = sam(area1, sqft, dist_main, bedrooms, bathrooms, rooms, park)
-        prediction1_area2 = sam(area2, sqft, dist_main, bedrooms, bathrooms, rooms, park)
-        st.write('Predicted House Price for Area 1 (DT):', prediction1_area1)
-        st.write('Predicted House Price for Area 2 (DT):', prediction1_area2)
-
-# Forecasting (4)
-if st.button('Forecast House Prices'):
-    is_valid, area, sqft, dist_main, bedrooms, bathrooms, rooms, park = validate_input(area, sqft, dist_main, bedrooms, bathrooms, rooms, park)
-    if not is_valid:
-        st.error('Please enter valid numerical values for input fields')
-    else:
-        # Implement your forecasting code here using ARIMA or any other method
-        pass
+# Display the footer
+st.markdown('---')
+st.markdown('This website is available for both mobile and desktop.')
