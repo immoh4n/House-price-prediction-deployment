@@ -87,3 +87,6 @@ if st.button('Predict House Price'):
 
         # Display the plot in Streamlit
         st.pyplot(plt)
+
+# Display the footer
+st.footer('This website is available for both mobile and desktop.')
