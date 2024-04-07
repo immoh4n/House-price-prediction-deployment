@@ -87,6 +87,7 @@ st.markdown(
     .reportview-container {
         background: url("https://s1.dmcdn.net/v/T8tfQ1ZkBZd0i6gpw/x720") no-repeat center center fixed;
         background-size: cover;
+        filter: blur(5px);
     }
     </style>
     """,
