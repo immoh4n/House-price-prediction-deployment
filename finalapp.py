@@ -56,7 +56,13 @@ def validate_input(area, sqft, dist_main, bedrooms, bathrooms, rooms, park):
         bedrooms = int(bedrooms)
         bathrooms = int(bathrooms)
         rooms = int(rooms)
-        park = park_mapping[park]
+        
+        # Check if park value exists in park_mapping
+        if park in park_mapping:
+            park = park_mapping[park]
+        else:
+            raise ValueError("Invalid value for 'park'")
+
         return True, area, sqft, dist_main, bedrooms, bathrooms, rooms, park
     except ValueError:
         return False, None, None, None, None, None, None, None
