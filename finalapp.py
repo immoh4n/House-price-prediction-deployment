@@ -26,15 +26,14 @@ park_mapping = {
     'no': 0
 }
 
-# Add CSS for background image
+# Add CSS for background image with blur effect
 st.markdown(
     """
     <style>
     .reportview-container {
         background: url('https://png.pngtree.com/background/20230412/original/pngtree-house-cartoon-phnom-penh-night-picture-image_2396264.jpg');
         background-size: cover;
-        filter: blur(1px);
-        opacity: 0.8;
+        filter: blur(5px);
     }
     </style>
     """,
