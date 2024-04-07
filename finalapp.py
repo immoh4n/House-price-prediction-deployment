@@ -9,7 +9,6 @@ from Final2 import sam
 from Final2 import sam1
 from Final2 import sam2
 
-
 # Set page configuration
 st.set_page_config(page_title="House price prediction",
                    layout="wide",
@@ -89,6 +88,19 @@ if st.button('Predict House Price'):
         # Display the plot in Streamlit
         st.pyplot(plt)
 
+# CSS for sticky footer
+st.markdown("""
+    <style>
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
 # Display the footer
-st.markdown('---')
-st.markdown('This website is available for both mobile and desktop.')
+st.markdown('<footer>This website is available for both mobile and desktop.</footer>', unsafe_allow_html=True)
