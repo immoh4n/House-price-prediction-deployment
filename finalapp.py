@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from Final2 import sam
 from Final2 import sam1
 from Final2 import sam2
-import webbrowser
+
 
 # Set page configuration
 st.set_page_config(page_title="House price prediction",
@@ -89,20 +89,9 @@ if st.button('Predict House Price'):
         # Display the plot in Streamlit
         st.pyplot(plt)
 
-# Contact Form
-st.write('### Contact Form')
-
-with st.form(key='contact_form'):
-    name = st.text_input('Your Name')
-    email = st.text_input('Your Email')
-    message = st.text_area('Your Message')
-    submit_button = st.form_submit_button(label='Submit')
-
-if submit_button:
-    subject = "House Price Prediction Website Inquiry"  # Email subject
-    email_content = f"Name: {name}\nEmail: {email}\nMessage: {message}\n\nThis message is regarding a query related to the House Price Prediction website."  # Email content
-    email_url = f"mailto:2116097@saec.ac.in?subject={subject}&body={email_content}"  # Email URL
-    webbrowser.open_new_tab(email_url)
+# Display the footer
+st.markdown('---')
+st.markdown('This website is available for both mobile and desktop.')
 
 # Display the footer
 st.markdown('---')
