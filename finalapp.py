@@ -5,9 +5,10 @@ import streamlit as st
 from sklearn.preprocessing import StandardScaler
 import numpy as np
 import matplotlib.pyplot as plt
-from Final2 import sam
-from Final2 import sam1
-from Final2 import sam2
+from Final2 import sam, sam1, sam2
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 # Set page configuration
 st.set_page_config(page_title="House price prediction",
@@ -61,6 +62,28 @@ def validate_input(area, sqft, dist_main, bedrooms, bathrooms, rooms, park):
     except ValueError:
         return False, None, None, None, None, None, None, None
 
+# Function to send email
+def send_email(name, email, message):
+    # Set up email configuration
+    sender_email = "2116097@saec.ac.in"  # Your email address
+    password = "your_email_password"       # Your email password
+
+    # Create a multipart message
+    msg = MIMEMultipart()
+    msg["From"] = sender_email
+    msg["To"] = "2116097@saec.ac.in"
+    msg["Subject"] = "New Contact Form Submission"
+
+    # Add message body
+    body = f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}"
+    msg.attach(MIMEText(body, "plain"))
+
+    # Connect to SMTP server and send email
+    with smtplib.SMTP("smtp.gmail.com", 587) as server:
+        server.starttls()
+        server.login(sender_email, password)
+        server.sendmail(sender_email, "2116097@saec.ac.in", msg.as_string())  # Send email to yourself
+
 # Button for prediction
 if st.button('Predict House Price'):
     is_valid, area, sqft, dist_main, bedrooms, bathrooms, rooms, park = validate_input(area, sqft, dist_main, bedrooms, bathrooms, rooms, park)
@@ -87,6 +110,21 @@ if st.button('Predict House Price'):
 
         # Display the plot in Streamlit
         st.pyplot(plt)
+
+# Contact Form
+st.markdown('---')
+st.title("Contact Us")
+name = st.text_input("Your Name")
+email = st.text_input("Your Email")
+message = st.text_area("Your Message")
+
+# Button to send email
+if st.button("Send Message"):
+    if not name or not email or not message:
+        st.error("Please fill out all fields.")
+    else:
+        send_email(name, email, message)
+        st.success("Your message has been sent. We'll get back to you soon!")
 
 # Display the footer
 st.markdown('---')
