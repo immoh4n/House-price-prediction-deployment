@@ -88,6 +88,9 @@ if st.button('Predict House Price'):
         # Display the plot in Streamlit
         st.pyplot(plt)
 
+        # Add fixed space after the plot
+        st.markdown("<div style='margin-bottom: 100px;'></div>", unsafe_allow_html=True)
+
 # Display the footer
 st.markdown('---')
 st.markdown('This website is available for both mobile and desktop.')
