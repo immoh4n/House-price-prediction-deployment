@@ -25,71 +25,65 @@ area_mapping = {
     't_nagar': 7
 }
 park_mapping = {
-    'yes':1,
-    'no':0
+    'yes': 1,
+    'no': 0
 }
+
+# Introduction and Project Description
+st.title('House Price Prediction')
+st.write('Welcome to the House Price Prediction app! This project uses machine learning algorithms to predict house prices based on various features such as location, square footage, distance to the main road, number of bedrooms and bathrooms, number of rooms, and parking availability.')
+
+st.write('Please enter the details in the sidebar and click the "Predict House Price" button to see the predicted prices.')
 
 # Sidebar for user input
 with st.sidebar:
-    st.title('House Price Prediction')
-    st.write('Please enter details')
+    st.write('### Input Details')
 
-    col1, = st.columns(1)
-    with col1:
-        area = st.selectbox('Area',list(area_mapping.keys()))
-        sqft = st.text_input('Square Footage')
-        dist_main = st.text_input('Distance to main road')
-        bedrooms = st.text_input('Number of Bedrooms')
-        bathrooms = st.text_input('Number of Bathrooms')
-        rooms = st.text_input('Number of Rooms')
-        park = st.selectbox('Parking',list(park_mapping.keys()))
+    area = st.selectbox('Area', list(area_mapping.keys()))
+    sqft = st.text_input('Square Footage')
+    dist_main = st.text_input('Distance to main road')
+    bedrooms = st.text_input('Number of Bedrooms')
+    bathrooms = st.text_input('Number of Bathrooms')
+    rooms = st.text_input('Number of Rooms')
+    park = st.selectbox('Parking', list(park_mapping.keys()))
 
 # Convert input to appropriate data types
-try:
-    area = area_mapping[area]
-    sqft = float(sqft)
-    dist_main = float(dist_main)
-    bedrooms = int(bedrooms)
-    bathrooms = int(bathrooms)
-    rooms = int(rooms)
-    park = park_mapping[park]
-except ValueError:
-    st.error('Please enter valid numerical values for input fields')
-    st.stop()
+def validate_input(area, sqft, dist_main, bedrooms, bathrooms, rooms, park):
+    try:
+        area = area_mapping[area]
+        sqft = float(sqft)
+        dist_main = float(dist_main)
+        bedrooms = int(bedrooms)
+        bathrooms = int(bathrooms)
+        rooms = int(rooms)
+        park = park_mapping[park]
+        return True, area, sqft, dist_main, bedrooms, bathrooms, rooms, park
+    except ValueError:
+        return False, None, None, None, None, None, None, None
 
 # Button for prediction
 if st.button('Predict House Price'):
-    prediction1 = sam(area, sqft, dist_main, bedrooms, bathrooms, rooms, park)
-    prediction2 = sam1(area, sqft, dist_main, bedrooms, bathrooms, rooms, park)
-    prediction3 = sam2(area, sqft, dist_main, bedrooms, bathrooms, rooms, park)
-    st.write('Predicted House Price(DT):', prediction1)
-    st.write('Predicted House Price(KNN):', prediction2)
-    st.write('Predicted House Price(LR):', prediction3)
+    is_valid, area, sqft, dist_main, bedrooms, bathrooms, rooms, park = validate_input(area, sqft, dist_main, bedrooms, bathrooms, rooms, park)
+    if not is_valid:
+        st.error('Please enter valid numerical values for input fields')
+    else:
+        prediction1 = sam(area, sqft, dist_main, bedrooms, bathrooms, rooms, park)
+        prediction2 = sam1(area, sqft, dist_main, bedrooms, bathrooms, rooms, park)
+        prediction3 = sam2(area, sqft, dist_main, bedrooms, bathrooms, rooms, park)
+        st.write('Predicted House Price(DT):', prediction1)
+        st.write('Predicted House Price(KNN):', prediction2)
+        st.write('Predicted House Price(LR):', prediction3)
 
-    # Plotting the predicted prices
-    labels = ['Decision Tree', 'KNN', 'Linear Regression']
-    predicted_prices = [prediction1, prediction2, prediction3]
+        # Plotting the predicted prices
+        labels = ['Decision Tree', 'KNN', 'Linear Regression']
+        predicted_prices = [prediction1, prediction2, prediction3]
 
-    plt.figure(figsize=(10, 6))
-    plt.bar(labels, predicted_prices, color=['blue', 'green', 'orange'])
-    plt.title('Predicted House Prices')
-    plt.xlabel('Regression Model')
-    plt.ylabel('Predicted Price')
-    plt.grid(axis='y', linestyle='--', alpha=0.7)
+        plt.figure(figsize=(10, 6))
+        plt.bar(labels, predicted_prices, color=['blue', 'green', 'orange'])
+        plt.title('Predicted House Prices')
+        plt.xlabel('Regression Model')
+        plt.ylabel('Predicted Price')
+        plt.grid(axis='y', linestyle='--', alpha=0.7)
 
-    # Display the plot in Streamlit
-    st.pyplot(plt)
-
-# Add background image from the same repository
-st.markdown(
-    """
-    <style>
-    .reportview-container {
-        background: url("https://s1.dmcdn.net/v/T8tfQ1ZkBZd0i6gpw/x720") no-repeat center center fixed;
-        background-size: cover;
-        filter: blur(5px);
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+        # Display the plot in Streamlit
+        st.pyplot(plt)
