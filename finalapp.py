@@ -8,7 +8,6 @@ import matplotlib.pyplot as plt
 from Final2 import sam
 from Final2 import sam1
 from Final2 import sam2
-import folium
 
 # Set page configuration
 st.set_page_config(page_title="House price prediction",
@@ -17,13 +16,13 @@ st.set_page_config(page_title="House price prediction",
 
 # Define the area options and their corresponding integer representations
 area_mapping = {
-    'karapakkam': {'location': (12.893, 80.201), 'color': 'blue'},
-    'adyar': {'location': (13.005, 80.251), 'color': 'green'},
-    'chrompet': {'location': (12.949, 80.142), 'color': 'red'},
-    'velachery': {'location': (12.978, 80.220), 'color': 'purple'},
-    'kk_nagar': {'location': (13.036, 80.213), 'color': 'orange'},
-    'anna_nagar': {'location': (13.087, 80.217), 'color': 'yellow'},
-    't_nagar': {'location': (13.037, 80.233), 'color': 'pink'}
+    'karapakkam': 1,
+    'adyar': 2,
+    'chrompet': 3,
+    'velachery': 4,
+    'kk_nagar': 5,
+    'anna_nagar': 6,
+    't_nagar': 7
 }
 park_mapping = {
     'yes': 1,
@@ -68,9 +67,9 @@ if st.button('Predict House Price'):
     if not is_valid:
         st.error('Please enter valid numerical values for input fields')
     else:
-        prediction1 = sam(area['location'][0], sqft, dist_main, bedrooms, bathrooms, rooms, park)
-        prediction2 = sam1(area['location'][0], sqft, dist_main, bedrooms, bathrooms, rooms, park)
-        prediction3 = sam2(area['location'][0], sqft, dist_main, bedrooms, bathrooms, rooms, park)
+        prediction1 = sam(area, sqft, dist_main, bedrooms, bathrooms, rooms, park)
+        prediction2 = sam1(area, sqft, dist_main, bedrooms, bathrooms, rooms, park)
+        prediction3 = sam2(area, sqft, dist_main, bedrooms, bathrooms, rooms, park)
         st.write('Predicted House Price(DT):', prediction1)
         st.write('Predicted House Price(KNN):', prediction2)
         st.write('Predicted House Price(LR):', prediction3)
@@ -88,10 +87,3 @@ if st.button('Predict House Price'):
 
         # Display the plot in Streamlit
         st.pyplot(plt)
-
-# Display Map
-st.subheader('Location Map')
-map_center = area_mapping[area]['location']
-m = folium.Map(location=map_center, zoom_start=12)
-folium.Marker(location=map_center, popup=area, icon=folium.Icon(color=area_mapping[area]['color'])).add_to(m)
-folium_static(m)
