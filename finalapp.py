@@ -89,4 +89,6 @@ if st.button('Predict House Price'):
         st.pyplot(plt)
 
 # Display the footer
-st.footer('This website is available for both mobile and desktop.')
+st.markdown('---')
+st.markdown('This website is available for both mobile and desktop.')
+
