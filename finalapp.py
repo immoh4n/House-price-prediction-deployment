@@ -26,25 +26,14 @@ park_mapping = {
     'no': 0
 }
 
-# Custom CSS for background image with blur effect
+# Add CSS for background image with blur effect
 st.markdown(
     """
     <style>
     .reportview-container {
-        background: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat;
-        background-size: 100% 100%;
-        -webkit-filter: blur(5px);
-        -moz-filter: blur(5px);
-        -o-filter: blur(5px);
-        -ms-filter: blur(5px);
-        filter: blur(15px);
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        z-index: -1;
-    }
+        background: url('https://png.pngtree.com/background/20230412/original/pngtree-house-cartoon-phnom-penh-night-picture-image_2396264.jpg');
+        background-size: cover;
+        }
     </style>
     """,
     unsafe_allow_html=True
@@ -113,9 +102,3 @@ if st.button('Predict House Price'):
 st.markdown('---')
 st.markdown('This website is available for both mobile and desktop.')
 
-# Feedback Mechanisms
-st.markdown('## Feedback Mechanisms')
-st.markdown('We would love to hear your thoughts! Please feel free to provide feedback, report bugs, suggest features, or contribute to this project:')
-st.markdown('- [Survey Link](#)')
-st.markdown('- [Contact Form](#)')
-st.markdown('- [GitHub Repository](#)')
