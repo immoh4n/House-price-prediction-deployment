@@ -6,13 +6,27 @@ import numpy as np
 import matplotlib.pyplot as plt
 from Final2 import sam, sam1, sam2
 
-# Set page configuration with custom theme
+# Set page configuration
 st.set_page_config(page_title="House price prediction",
                    layout="wide",
-                   page_icon="🏘️",
-                   )
+                   page_icon="🏘️")
 
-# Custom CSS for background image with blur effect
+# Define the area options and their corresponding integer representations
+area_mapping = {
+    'karapakkam': 1,
+    'adyar': 2,
+    'chrompet': 3,
+    'velachery': 4,
+    'kk_nagar': 5,
+    'anna_nagar': 6,
+    't_nagar': 7
+}
+park_mapping = {
+    'yes': 1,
+    'no': 0
+}
+
+# Add CSS for background image with blur effect
 st.markdown(
     """
     <style>
