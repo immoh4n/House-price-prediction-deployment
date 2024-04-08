@@ -50,7 +50,7 @@ with st.sidebar:
     st.write('### Input Details')
 
     area = st.selectbox('Area', list(area_mapping.keys()))
-    sqft = st.text_input('Square Footage')
+    sqft = st.text_input('Square Feet')
     dist_main = st.text_input('Distance to main road')
     bedrooms = st.text_input('Number of Bedrooms')
     bathrooms = st.text_input('Number of Bathrooms')
