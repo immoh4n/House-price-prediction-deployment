@@ -102,9 +102,4 @@ if st.button('Predict House Price'):
 st.markdown('---')
 st.markdown('This website is available for both mobile and desktop.')
 
-# Feedback Mechanisms
-st.markdown('## Feedback Mechanisms')
-st.markdown('We would love to hear your thoughts! Please feel free to provide feedback, report bugs, suggest features, or contribute to this project:')
-st.markdown('- [Survey Link](#)')
-st.markdown('- [Contact Form](#)')
-st.markdown('- [GitHub Repository](#)')
+
