@@ -102,3 +102,15 @@ if st.button('Predict House Price'):
 st.markdown('---')
 st.markdown('This website is available for both mobile and desktop.')
 
+# Add CSS for text color
+st.markdown(
+    """
+    <style>
+    body {
+        color: black;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
