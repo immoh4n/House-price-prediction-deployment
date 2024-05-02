@@ -31,7 +31,7 @@ st.markdown(
     """
     <style>
     .reportview-container {
-        background: url('./pngtree-house-cartoon-phnom-penh-night-picture-image_2396264.jpg');
+        background: url('https://image.freepik.com/free-photo/house-blur-background_93675-6645.jpg');
         background-size: cover;
         }
     </style>
