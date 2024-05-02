@@ -31,7 +31,7 @@ st.markdown(
     """
     <style>
     .reportview-container {
-        background: url('https://image.freepik.com/free-photo/house-blur-background_93675-6645.jpg');
+        background: url('https://www.galleriaresidences.in/wp-content/uploads/2019/06/hg_banner_1_7.jpg');
         background-size: cover;
         }
     </style>
