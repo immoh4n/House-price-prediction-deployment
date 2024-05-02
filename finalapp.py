@@ -31,7 +31,7 @@ st.markdown(
     """
     <style>
     .reportview-container {
-        background: url('https://www.galleriaresidences.in/wp-content/uploads/2019/06/hg_banner_1_7.jpg');
+        background: url('https://orelpc.com/img/image-6.png');
         background-size: cover;
         }
     </style>
