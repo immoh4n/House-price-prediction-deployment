@@ -31,7 +31,7 @@ st.markdown(
     """
     <style>
     .reportview-container {
-        background: url('https://www.technocrazed.com/wp-content/uploads/2015/12/Home-Wallpaper-30.jpg');
+        background: url('https://images7.alphacoders.com/462/thumb-1920-462294.jpg');
         background-size: cover;
         }
     </style>
