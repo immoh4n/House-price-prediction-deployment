@@ -31,7 +31,7 @@ st.markdown(
     """
     <style>
     .reportview-container {
-        background: url('https://github.com/immoh4n/House-price-prediction-deployment/blob/main/pngtree-house-cartoon-phnom-penh-night-picture-image_2396264.jpg');
+        background: url('https://www.technocrazed.com/wp-content/uploads/2015/12/Home-Wallpaper-30.jpg');
         background-size: cover;
         }
     </style>
