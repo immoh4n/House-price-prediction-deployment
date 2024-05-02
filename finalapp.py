@@ -31,7 +31,7 @@ st.markdown(
     """
     <style>
     .reportview-container {
-        background: url('https://png.pngtree.com/background/20230412/original/pngtree-house-cartoon-phnom-penh-night-picture-image_2396264.jpg');
+        background: url('pngtree-house-cartoon-phnom-penh-night-picture-image_2396264.jpg');
         background-size: cover;
         }
     </style>
